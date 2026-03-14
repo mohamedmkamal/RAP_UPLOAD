@@ -1,0 +1,61 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'User file',
+                typeNamePlural: 'User files',
+                title: { type: #STANDARD, label: 'user_file', value: 'FileId' } 
+                }
+                  
+//  presentationVariant: [{ sortOrder: [{ by: 'TravelID', direction:  #DESC }] }] 
+}
+
+annotate entity ZC_EXL_USER
+    with 
+{
+// main annotation 
+  @UI.facet: [ 
+  //header
+  { id:       'idEndUser',                purpose: #HEADER,  position: 10 ,
+    type:     #DATAPOINT_REFERENCE,       targetQualifier: 'tqEndUser'
+   },
+  { id:       'idChangeAt',                purpose: #HEADER,  position: 20 ,
+    type:     #DATAPOINT_REFERENCE,       targetQualifier: 'tqChangeAt'
+   },
+  { id:       'idStatus',                purpose: #HEADER,  position: 30 ,
+    type:     #DATAPOINT_REFERENCE,       targetQualifier: 'tqStatus'
+   },
+   //main entity tap
+  { id:       'idFile',                  purpose: #STANDARD,  position: 50 ,
+    type:     #IDENTIFICATION_REFERENCE, label: 'File Upload'
+   },
+   //line item 
+  { id:       'idData',              purpose: #STANDARD,  position: 60 ,
+    type:     #LINEITEM_REFERENCE,   label: 'Excel Data', targetElement: '_EXLDATA'
+   }
+   ]  
+   
+//elements annotation
+@UI.dataPoint: { qualifier: 'tqEndUser' , title: 'Person Responsible' } // use to link with datapoint_trf L18
+@UI.identification: [{ type: #FOR_ACTION , label: 'Upload Data' , dataAction: 'UploadExcelData' }]
+    EndUser;
+//    FileId;
+@UI.dataPoint: { qualifier: 'tqStatus' , title: 'File Status' }
+@UI.lineItem: [{ position: 20 , label: 'File Status' }]
+    FileStatus;
+@UI.identification: [{ position: 30 , label: 'Select Excel File To Upload'}]
+    Attachment;
+@UI.hidden: true
+    Mimetype;
+@UI.lineItem: [{ position: 40 , label: 'File Name' }]
+    Filename;
+    @UI.hidden: true
+    LocalCreatedBy;
+    @UI.hidden: true
+    LocalCreatedAt;
+    @UI.hidden: true
+    LocalLastChangedBy;
+@UI.dataPoint: { qualifier: 'tqChangeAt' , title: 'Last Change At' }
+    LocalLastChangedAt;
+@UI.hidden: true 
+    LastChangedAt;
+    
+}

@@ -28,4 +28,5 @@ define view entity ZC_EXL_DATA as projection on ZI_EXL_DATA as XDATA
     Currency,
     /* Associations */
     _EXLUSR : redirected to parent ZC_EXL_USER
+    
 }

@@ -1,0 +1,59 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'File Data',
+                typeNamePlural: 'File Data',
+                title: { type: #STANDARD, value: 'EndUser' } ,
+                description: {type: #STANDARD , value: 'FileID' }
+                
+                }
+                  
+}
+annotate entity ZC_EXL_DATA
+    with 
+{
+@UI.hidden: true
+@UI.lineItem: [{ type: #FOR_ACTION , label: 'Process Data' , dataAction: 'ProcessData'},
+{ type: #FOR_ACTION , label: 'Upload Data' , dataAction: 'UploadXLData'}
+]
+   EndUser;
+   @UI.hidden: true
+   FileId;
+ //  @UI.lineItem: [{ position: 5 , label: 'Line ID' }]
+ //  LId;
+   @UI.lineItem: [{ position: 10 , label: 'Line NO' }]
+   LNo;
+   @UI.lineItem: [{ position: 20 , label: 'Supplier' }]
+   Supplier;
+   @UI.lineItem: [{ position: 30 , label: 'Purchasing Organization' }]
+   Purchasingorganization;
+   @UI.lineItem: [{ position: 40 , label: 'Purchasing Group' }]
+   Purchasinggroup;
+   @UI.lineItem: [{ position: 50 , label: 'Company Code' }]
+   Companycode;
+   @UI.lineItem: [{ position: 60 , label: 'PO Item' }]
+   Purchaseorderitem;
+   @UI.lineItem: [{ position: 70 , label: 'PO Item Text' }]
+   Purchaseorderitemtext;
+   @UI.lineItem: [{ position: 80 , label: 'Material' }]
+   Material;
+   @UI.lineItem: [{ position: 90 , label: 'Material Group' }]
+   Materialgroup;
+   @UI.lineItem: [{ position: 100 , label: 'Quantity' }]
+   PoQuantity;
+   @UI.lineItem: [{ position: 110 , label: 'Unit Of Measure' }]
+   PoUnit;
+   @UI.lineItem: [{ position: 120 , label: 'Plant' }]
+   Plant;
+   @UI.lineItem: [{ position: 130 , label: 'Account Assignmen' }]
+   Accountassignmentcategory;
+   @UI.lineItem: [{ position: 140 , label: 'PR NO' }]
+   Purchaserequisition;
+   @UI.lineItem: [{ position: 150 , label: 'PR Item' }]
+   Purchaserequisitionitem;
+   @UI.lineItem: [{ position: 160 , label: 'Amount' }]
+   Amount;
+   @UI.lineItem: [{ position: 170 , label: 'Currency' }]
+   Currency;
+  
+    
+}

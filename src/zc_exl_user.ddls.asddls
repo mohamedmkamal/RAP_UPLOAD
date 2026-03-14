@@ -2,7 +2,8 @@
 @EndUserText.label: 'Projection view for excl user'
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
-define root view entity ZC_EXL_USER as projection on ZI_EXL_USER as user
+define root view entity ZC_EXL_USER
+  provider contract transactional_query as projection on ZI_EXL_USER as user_file
 {
     key EndUser,
     key FileId,
